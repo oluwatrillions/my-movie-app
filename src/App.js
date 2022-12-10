@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import './App.css'
 import Movies from './Movies';
 import axios from 'axios'
 
@@ -18,16 +19,14 @@ function App() {
         } catch (error) {
             console.log(error);
         }
+    
         return (
-        <div className="App">
-         <h1>{movies.map((movie) => {
-            const {Poster,Title, Year, imdbID} = movie
-            return <div key={imdbID}>
-                {Title}
-                {Year}
-                <img src={Poster} alt={Title} />
-                </div>
-        }) }</h1>
+            <div className="App">
+                
+            {movies.map((movie) => (
+                <Movies key={ movie.imdbID} {...movie} />
+            ))
+        }
     </div>
   );
 }
