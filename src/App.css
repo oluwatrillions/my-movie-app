@@ -12,7 +12,31 @@ div {
     flex-wrap: wrap;
     justify-content: center;
     background-color: rgb(71, 62, 62);
-    padding: 1em;
+    padding: 2em;
     overflow:scroll;
-    gap: 1em;
+    gap: 2em;
+}
+
+.search {
+    display: flex;
+    justify-content: center;
+    height: 4vh;
+    gap: 30vw;
+    background-color: white;
+}
+
+.search-box input {
+    width: 30vw;
+    height: 2em;
+}
+
+.search-box {
+    display: flex;
+    gap: 2em;
+    width: 40vw;
+}
+
+button {
+    width: 6em;
+    font-size: 1em;
 }

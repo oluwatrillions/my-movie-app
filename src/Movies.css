@@ -10,6 +10,11 @@
     overflow: hidden;
 }
 
+.movie-div img {
+    height: 450px;
+    width: 300px;
+}
+
 .movie-div h2 {
     font-size: 1.1em;
     color: whitesmoke;
@@ -20,4 +25,6 @@
 .movie-div h5 {
     font-size: 0.9em;
     color: whitesmoke;
+    display: flex;
+    justify-content: center;
 }
