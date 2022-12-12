@@ -5,13 +5,21 @@ div {
     box-sizing: border-box;
 }
 
+.container {
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(71, 62, 62);
+}
+
 .App {
     width: 100vw;
-    height: 100vh;
+    min-height: 90vh;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    background-color: rgb(71, 62, 62);
+    background-color: rgb(71, 62, 62) !important;
     padding: 2em;
     overflow:scroll;
     gap: 2em;
@@ -20,23 +28,37 @@ div {
 .search {
     display: flex;
     justify-content: center;
-    height: 4vh;
-    gap: 30vw;
-    background-color: white;
+    min-height: 10vh;
+    align-items: center;
+}
+
+.search h2 {
+    width: 30vw;
 }
 
 .search-box input {
-    width: 30vw;
-    height: 2em;
+    width: 15vw;
+    height: 4vh;
 }
 
 .search-box {
     display: flex;
     gap: 2em;
-    width: 40vw;
+    width: 30vw;
+}
+
+.category {
+    display: flex;
+    gap: 2em;
+    width: 30vw;}
+
+.category input{
+    width: 15vw;
+    height: 4vh;
 }
 
 button {
     width: 6em;
     font-size: 1em;
+    height: 4vh;
 }

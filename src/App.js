@@ -10,45 +10,53 @@ function App() {
 
         const [search, setSearch] = useState('')
         const [movies, setMovies] = useState([])
+        const [category, setCategory] = useState('')
 
             useEffect(() => {
                 axios(movie_api)
                     .then((response) => {
-                        console.log(response.data);
                         setMovies(response.data.Search)
                     })
             }, [search])
 
-    const searchBtn = async (title) => {
+    const searchBtn = async (e) => {
         const searchURL = `https://www.omdbapi.com/?s=${search}&apikey=${API_KEY}`
-        console.log(search);
-        console.log(API_KEY);
 
-        const info = await axios(searchURL)
-                        .then(response => response.json())
-                            .then(data => setMovies(data.Search))
-                                .catch(error => console.log(error))
-                    
+            const info = await axios(searchURL)
+                        .then((response) => {
+                            setMovies(response.data.Search)
+                        })         
+    }
+    
+     const categoryBtn = async (e) => {
+        const categoryURL = `https://www.omdbapi.com/?s=${category}&apikey=${API_KEY}`
+
+            const info = await axios(categoryURL)
+                        .then((response) => {
+                            setMovies(response.data.Search)
+                        })         
 }
     
     return (
-        <>
+        <div className='container'>
             <div className='search'>
                 <h2>Movie App</h2>
                 <div className='search-box'>
-                    <form type='text'>
                         <input type='text' value={search} onChange={((e) => setSearch(e.target.value))} />
                         <button onClick={() => searchBtn(search)}>Search</button>
-                    </form>
+                </div>
+                <div className='category'>
+                        <input type='text' value={category} onChange={((e) => setCategory(e.target.value))} />
+                        <button onClick={() => categoryBtn(category)}>Category</button>
                 </div>
             </div>
             <div className="App">           
             {movies.map((movie) => (
                 <Movies key={ movie.imdbID} {...movie} />
             ))
-        }
-    </div>
-            </>
+            }
+            </div>
+        </div>
   );
 }
 
